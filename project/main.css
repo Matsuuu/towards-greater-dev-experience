@@ -28,6 +28,11 @@ a {
     color: inherit;
 }
 
+.main-sprite {
+    view-transition-name: main-sprite;
+    transition: 300ms linear;
+}
+
 
 
 

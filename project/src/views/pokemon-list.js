@@ -1,6 +1,5 @@
 import { html, render } from "lit";
 import { onNavigation } from "suunta";
-import { router } from "../routing/router";
 import { getPokemonImage, getPokemonImageByUrl, getPokemonIndexFromUrl, getPokemonList } from "../service/pokeapi";
 
 export function PokemonList() {
@@ -16,7 +15,7 @@ export function PokemonList() {
         render(html`
             <ul>
                 ${pokemons.map(poke => html`
-                        <a href="/${getPokemonIndexFromUrl(poke.url)}">
+                        <a href="/${poke.name}" @mouseenter=${addTransitionClass} @mouseleave=${removeTransitionClass}>
                             <li>
                                     <label>${poke.name}</label>
                                     <img src="${getPokemonImageByUrl(poke.url)}" />
@@ -33,4 +32,16 @@ export function PokemonList() {
 
         </section>
     `;
+}
+
+function addTransitionClass(e) {
+    const target = e.target.querySelector("img");
+    target.classList.add("main-sprite");
+    // @ts-ignore
+    window.targetPokemonSprite = target.src;
+}
+
+function removeTransitionClass(e) {
+    const target = e.target.querySelector("img");
+    target.classList.remove("main-sprite");
 }

@@ -1,5 +1,6 @@
 import { Suunta } from "suunta";
 import { HomeView } from "../views/home-view.js";
+import { PokedexView } from "../views/pokedex-view.js";
 import { PokemonList } from "../views/pokemon-list.js";
 
 /**
@@ -17,9 +18,9 @@ const routes = [
                 view: PokemonList
             },
             {
-                path: "/{pokemonIndex}(\\d+)",
+                path: "/{pokemonName}",
                 name: "PokemonList",
-                view: PokemonList
+                view: PokedexView
             }
         ]
     },

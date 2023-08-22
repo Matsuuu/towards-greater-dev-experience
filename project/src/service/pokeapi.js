@@ -13,6 +13,14 @@ export function getPokemonList(limit = 20, offset = 0) {
 }
 
 /**
+ * @param {string} name
+ */
+export function getPokemon(name) {
+    const target = new URL(`pokemon/${name}`, API_URL)
+    return fetch(target).then(res => res.json());
+}
+
+/**
  * @param {string | number} [index]
  */
 export function getPokemonImage(index) {
