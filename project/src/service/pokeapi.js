@@ -19,9 +19,12 @@ export function getPokemonImage(index) {
     return ASSET_URL + leftPad(index) + ".png";
 }
 
+export function getPokemonIndexFromUrl(url = "") {
+    return url.split("/").filter(s => s.length).at(-1)
+}
+
 export function getPokemonImageByUrl(url = "") {
-    console.log(url.split("/").filter(s => s.length).at(-1));
-    return getPokemonImage(url.split("/").filter(s => s.length).at(-1));
+    return getPokemonImage(getPokemonIndexFromUrl(url));
 }
 
 /**

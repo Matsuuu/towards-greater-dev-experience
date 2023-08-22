@@ -17,7 +17,7 @@ const routes = [
                 view: PokemonList
             },
             {
-                path: "/<pokemonIndex>{\d+}",
+                path: "/{pokemonIndex}(\\d+)",
                 name: "PokemonList",
                 view: PokemonList
             }
@@ -42,6 +42,7 @@ const actualRenderer = router.options.renderer;
 router.options.renderer = (...args) => {
     // @ts-ignore
     if (!document.startViewTransition) {
+        // @ts-ignore
         actualRenderer(...args);
         return;
     }

@@ -7,7 +7,10 @@
 #pokemon-listing li {
     display: flex;
     flex-direction: column;
+    justify-content:center;
+    align-items: center;
     border: 1px solid #fff;
+    padding: 0.2rem;
     border-radius: 2px;
     transition: 100ms ease-in-out;
 }
@@ -19,6 +22,10 @@
 
 #pokemon-listing label {
     text-transform: capitalize;
+}
+
+a {
+    color: inherit;
 }
 
 

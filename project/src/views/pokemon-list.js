@@ -1,7 +1,7 @@
 import { html, render } from "lit";
 import { onNavigation } from "suunta";
 import { router } from "../routing/router";
-import { getPokemonImage, getPokemonImageByUrl, getPokemonList } from "../service/pokeapi";
+import { getPokemonImage, getPokemonImageByUrl, getPokemonIndexFromUrl, getPokemonList } from "../service/pokeapi";
 
 export function PokemonList() {
 
@@ -16,10 +16,12 @@ export function PokemonList() {
         render(html`
             <ul>
                 ${pokemons.map(poke => html`
-                    <li>
-                        <label>${poke.name}</label>
-                        <img src="${getPokemonImageByUrl(poke.url)}" />
-                    </li>
+                        <a href="/${getPokemonIndexFromUrl(poke.url)}">
+                            <li>
+                                    <label>${poke.name}</label>
+                                    <img src="${getPokemonImageByUrl(poke.url)}" />
+                            </li>
+                        </a>
                 `)}
             </ul>
         `, listing);
