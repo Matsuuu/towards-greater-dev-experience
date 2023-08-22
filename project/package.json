@@ -1,0 +1,21 @@
+{
+  "name": "project-base",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run start:no-resolve -- --node-resolve",
+    "start:no-resolve": "web-dev-server --open --watch --app-index index.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "debug-bubble": "^1.1.0",
+    "lit": "^2.7.5",
+    "suunta": "^1.1.2"
+  },
+  "devDependencies": {
+    "@web/dev-server": "^0.2.3"
+  }
+}

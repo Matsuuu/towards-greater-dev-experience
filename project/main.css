@@ -1,0 +1,78 @@
+#pokemon-listing ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+}
+
+#pokemon-listing li {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #fff;
+    border-radius: 2px;
+    transition: 100ms ease-in-out;
+}
+
+#pokemon-listing li:hover {
+    background: rgba(255,255,255, 0.1);
+    cursor: pointer;
+}
+
+#pokemon-listing label {
+    text-transform: capitalize;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: "Rubik", sans-serif;
+}
+body {
+  background: #093028; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #237a57,
+    #093028
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #237a57,
+    #093028
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+suunta-view {
+  color: #fff;
+}
+
+main {
+  padding: 2rem;
+  border: 2px solid #fff;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  transition: 200ms ease-in-out;
+}
