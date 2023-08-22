@@ -15,11 +15,12 @@ export function PokedexView() {
         console.log(pokemon);
 
     });
+    //TODO: Make pokedex image alive?
 
     return html`
         <a href="/">Back</a>
         <section id="pokedex">
-            <img src="${window.targetPokemonSprite}" />
+            <img class="main-sprite" src="${window.targetPokemonSprite}" />
         </section>
     `;
 }

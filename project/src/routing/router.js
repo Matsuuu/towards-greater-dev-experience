@@ -1,5 +1,4 @@
 import { Suunta } from "suunta";
-import { HomeView } from "../views/home-view.js";
 import { PokedexView } from "../views/pokedex-view.js";
 import { PokemonList } from "../views/pokemon-list.js";
 
@@ -9,21 +8,14 @@ import { PokemonList } from "../views/pokemon-list.js";
 const routes = [
     {
         path: "/",
-        name: "Home",
-        view: HomeView,
-        children: [
-            {
-                path: "/",
-                name: "PokemonList",
-                view: PokemonList
-            },
-            {
-                path: "/{pokemonName}",
-                name: "PokemonList",
-                view: PokedexView
-            }
-        ]
+        name: "PokemonList",
+        view: PokemonList
     },
+    {
+        path: "/{pokemonName}",
+        name: "PokemonList",
+        view: PokedexView
+    }
 ];
 
 /**
@@ -48,5 +40,8 @@ router.options.renderer = (...args) => {
         return;
     }
     // @ts-ignore
-    document.startViewTransition(() => actualRenderer(...args));
+    document.startViewTransition(async () => {
+        // @ts-ignore
+        actualRenderer(...args);
+    });
 }

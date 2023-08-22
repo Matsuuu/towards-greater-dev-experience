@@ -5,6 +5,7 @@ const ASSET_URL = "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/";
 
 // https://pokeapi.co/docs/v2
 
+// TODO: memoize?
 export function getPokemonList(limit = 20, offset = 0) {
     const target = new URL("pokemon", API_URL);
     target.search = new URLSearchParams({ limit: limit + '', offset: offset + '' }).toString();
