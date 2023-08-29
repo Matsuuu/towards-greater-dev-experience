@@ -4,18 +4,18 @@
     gap: 0.3rem;
 }
 
-.main-sprite {
-    view-transition-name: main-sprite;
+.pokemon-sprite {
+    view-transition-name: pokemon-sprite;
     contain: layout;
     mix-blend-mode: normal;
 }
 
-::view-transition-old(main-sprite),
-::view-transition-new(main-sprite) {
+::view-transition-old(pokemon-sprite),
+::view-transition-new(pokemon-sprite) {
     mix-blend-mode: normal;
 }
 
-::view-transition-image-pair(main-sprite) {
+::view-transition-image-pair(pokemon-sprite) {
     isolation: none;
 }
 

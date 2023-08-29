@@ -1,5 +1,6 @@
 import { html, render } from "lit";
 import { onNavigation } from "suunta";
+import { PokemonState } from "../events/state";
 import { router } from "../routing/router";
 import { getPokemon } from "../service/pokeapi";
 
@@ -20,7 +21,7 @@ export function PokedexView() {
     return html`
         <a href="/">Back</a>
         <section id="pokedex">
-            <img class="main-sprite" src="${window.targetPokemonSprite}" />
+            <img class="pokemon-sprite" src="${PokemonState.getActivePokemon().url}" />
         </section>
     `;
 }
