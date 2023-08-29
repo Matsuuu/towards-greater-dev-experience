@@ -1,4 +1,4 @@
-import { SetActivePokemonEvent } from "./set-active-pokemon-event";
+import { SetActivePokemonEvent } from "./set-active-pokemon-event.js";
 
 class EventBus extends EventTarget {
 }

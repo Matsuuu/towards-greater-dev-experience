@@ -1,8 +1,8 @@
 import { html, render } from "lit";
 import { onNavigation } from "suunta";
-import { PokemonState } from "../events/state";
-import { router } from "../routing/router";
-import { getPokemon } from "../service/pokeapi";
+import { PokemonState } from "../events/state.js";
+import { router } from "../routing/router.js";
+import { getPokemon } from "../service/pokeapi.js";
 
 export function PokedexView() {
 

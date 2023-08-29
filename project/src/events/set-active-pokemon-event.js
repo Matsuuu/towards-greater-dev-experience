@@ -1,4 +1,4 @@
-import { getPokemonImageByUrl } from "../service/pokeapi";
+import { getPokemonImageByUrl } from "../service/pokeapi.js";
 
 export class SetActivePokemonEvent extends Event {
     static eventName = "set-active-pokemon-event";
