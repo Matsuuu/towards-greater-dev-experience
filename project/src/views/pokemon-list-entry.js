@@ -58,6 +58,11 @@ export class PokemonListEntry extends LitElement {
         transition: 100ms ease-in-out;
     }
 
+    img {
+        height: 200px;
+        width: 200px;
+    }
+
     :host(:hover) {
         background: rgba(255,255,255, 0.1);
         cursor: pointer;
