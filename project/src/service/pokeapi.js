@@ -6,7 +6,7 @@ const ASSET_URL = "https://raw.githubusercontent.com/PokeAPI/sprites/master/spri
 // https://pokeapi.co/docs/v2
 
 // TODO: memoize?
-export function getPokemonList(limit = 40, offset = 0) {
+export function getPokemonList(limit = 151, offset = 0) {
     const target = new URL("pokemon", API_URL);
     target.search = new URLSearchParams({ limit: limit + '', offset: offset + '' }).toString();
 

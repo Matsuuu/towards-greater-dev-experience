@@ -16,7 +16,7 @@
     contain: layout;
     mix-blend-mode: normal;
     width: 200px;
-    height: 200px;
+    aspect-ratio: 1;
 
     background: #FFF;
     padding: 2rem;
