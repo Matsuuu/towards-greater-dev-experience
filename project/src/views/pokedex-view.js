@@ -16,16 +16,32 @@ export function PokedexView() {
           * @type { HTMLImageElement }
           */
         const sprite = document.querySelector(".pokemon-sprite");
-        console.log(pokemon.sprites.versions["generation-v"])
         sprite.src = pokemon.sprites.versions["generation-v"]["black-white"].animated.front_default;
 
+        /** @type { HTMLElement } */
+        const content = document.querySelector(".pokedex-content");
+
+        render(html`
+            <h2>${pokemon.name}</h2>
+            <ul>
+                ${pokemon.stats.map(stat => html`
+                    <li>${stat.stat.name}: ${stat.base_stat}</li>
+                `)}
+            </ul>
+        `, content);
+
     });
-    //TODO: Make pokedex image alive?
 
     return html`
-        <a href="/">Back</a>
         <section id="pokedex">
-            <img class="pokemon-sprite" src="${PokemonState.getActivePokemon()?.url}" />
+            <a href="/"><</a>
+            <div class="pokedex-display">
+                <img class="pokemon-sprite" src="${PokemonState.getActivePokemon()?.url}" />
+            </div>
+
+            <div class="pokedex-content">
+
+            </div>
         </section>
     `;
 }
