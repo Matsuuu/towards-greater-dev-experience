@@ -16,7 +16,7 @@ export class PokemonListEntry extends LitElement {
         this.activePokemon = false;
     }
 
-    addTransitionClass(e) {
+    onSelect(e) {
         Events.dispatchEvent(new CustomEvent("clear-selections"));
         Events.dispatchEvent(new SetActivePokemonEvent(this.pokemon))
         this.activePokemon = true;
@@ -35,7 +35,7 @@ export class PokemonListEntry extends LitElement {
 
     render() {
         return html`
-            <a href="/${this.pokemon.name}" @click=${this.addTransitionClass}>
+            <a href="/${this.pokemon.name}" @click=${this.onSelect}>
                 <label>${this.pokemon.name}</label>
                 <img src="${getPokemonImageByUrl(this.pokemon.url)}" />
             </a>
@@ -47,34 +47,34 @@ export class PokemonListEntry extends LitElement {
             view-transition-name: pokemon-sprite;
         }
 
-:host {
-    display: flex;
-    flex-direction: column;
-    justify-content:center;
-    align-items: center;
-    border: 1px solid #fff;
-    padding: 0.2rem;
-    border-radius: 2px;
-    transition: 100ms ease-in-out;
-}
+    :host {
+        display: flex;
+        flex-direction: column;
+        justify-content:center;
+        align-items: center;
+        border: 1px solid #fff;
+        padding: 0.2rem;
+        border-radius: 2px;
+        transition: 100ms ease-in-out;
+    }
 
-:host(:hover) {
-    background: rgba(255,255,255, 0.1);
-    cursor: pointer;
-}
+    :host(:hover) {
+        background: rgba(255,255,255, 0.1);
+        cursor: pointer;
+    }
 
-a {
-    display: flex;
-    flex-direction: column;
-    justify-content:center;
-    color: inherit;
-    text-decoration: none;
-    text-align: center;
-}
+    a {
+        display: flex;
+        flex-direction: column;
+        justify-content:center;
+        color: inherit;
+        text-decoration: none;
+        text-align: center;
+    }
 
-label {
-    text-transform: capitalize;
-}
+    label {
+        text-transform: capitalize;
+    }
 
     `
 }

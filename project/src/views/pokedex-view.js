@@ -10,10 +10,14 @@ export function PokedexView() {
         const currentRoute = router.getCurrentView();
         const pokemonName = currentRoute.properties.pokemonName.toString();
         const pokemon = await getPokemon(pokemonName);
-        /** @type { HTMLElement } */
-        const pokedex = document.querySelector("#pokedex");
-
         console.log(pokemon);
+
+        /**
+          * @type { HTMLImageElement }
+          */
+        const sprite = document.querySelector(".pokemon-sprite");
+        console.log(pokemon.sprites.versions["generation-v"])
+        sprite.src = pokemon.sprites.versions["generation-v"]["black-white"].animated.front_default;
 
     });
     //TODO: Make pokedex image alive?
@@ -21,7 +25,7 @@ export function PokedexView() {
     return html`
         <a href="/">Back</a>
         <section id="pokedex">
-            <img class="pokemon-sprite" src="${PokemonState.getActivePokemon().url}" />
+            <img class="pokemon-sprite" src="${PokemonState.getActivePokemon()?.url}" />
         </section>
     `;
 }
