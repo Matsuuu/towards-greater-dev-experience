@@ -8,40 +8,6 @@ import { getPokemonImageByUrl } from "../service/pokeapi.js";
 import Styles from "../../main.css" assert { type: "css" };
 
 export class PokemonListEntry extends LitElement {
-    static properties = {
-        pokemon: { type: Object },
-        activePokemon: { type: Boolean, attribute: "active-pokemon", reflect: true, },
-    };
-
-    constructor() {
-        super();
-        this.pokemon = undefined;
-        this.activePokemon = false;
-    }
-
-    onSelect() {
-        Events.dispatchEvent(new CustomEvent("clear-selections"));
-        Events.dispatchEvent(new SetActivePokemonEvent(this.pokemon));
-        this.activePokemon = true;
-    }
-
-    firstUpdated() {
-        Events.addEventListener("clear-selections", () => {
-            this.activePokemon = false;
-        });
-        if (PokemonState.getActivePokemon()?.name === this.pokemon.name) {
-            this.activePokemon = true;
-        }
-    }
-
-    render() {
-        return html`
-          <a href="/${this.pokemon.name}" @click=${this.onSelect}>
-            <label>${this.pokemon.name}</label>
-            <img src="${getPokemonImageByUrl(this.pokemon.url)}" />
-          </a>
-    `;
-    }
 
     static styles = [Styles, css`
 
@@ -65,7 +31,43 @@ export class PokemonListEntry extends LitElement {
       cursor: pointer;
     }
 
-  `,];
+  `];
+    static properties = {
+        pokemon: { type: Object },
+        activePokemon: { type: Boolean, attribute: "active-pokemon", reflect: true, },
+    };
+
+    constructor() {
+        super();
+        this.pokemon = undefined;
+        this.activePokemon = false;
+    }
+
+    onSelect() {
+        Events.dispatchEvent(new CustomEvent("clear-selections"));
+        Events.dispatchEvent(new SetActivePokemonEvent(this.pokemon));
+        this.activePokemon = true;
+    }
+
+    firstUpdated() {
+        Events.addEventListener("clear-selections", () => {
+            this.activePokemon = false;
+        });
+
+        if (PokemonState.getActivePokemon()?.name === this.pokemon.name) {
+            this.activePokemon = true;
+        }
+    }
+
+    render() {
+        return html`
+          <a href="/${this.pokemon.name}" @click=${this.onSelect}>
+            <label>${this.pokemon.name}</label>
+            <img src="${getPokemonImageByUrl(this.pokemon.url)}" />
+          </a>
+    `;
+    }
+
 }
 
 customElements.define("pokemon-list-entry", PokemonListEntry);

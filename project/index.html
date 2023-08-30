@@ -12,7 +12,22 @@
     <link href="./main.css" rel="stylesheet" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script src="./import-mapper.js"></script>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "lit": "./node_modules/lit/index.js",
+          "@lit/reactive-element": "./node_modules/@lit/reactive-element/reactive-element.js",
+          "lit-html": "./node_modules/lit-html/lit-html.js",
+          "lit-html/": "./node_modules/lit-html/",
+          "lit-element/": "./node_modules/lit-element/",
+          "suunta": "https://esm.run/suunta",
+          "debug-bubble": "./node_modules/debug-bubble/src/bundle.js"
+        }
+      }
+    </script>
+
+    <!--<script src="./import-mapper.js"></script>-->
   </head>
   <body>
     <suunta-view></suunta-view>
