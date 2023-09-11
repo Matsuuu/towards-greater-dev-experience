@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Suunta } from "suunta";
 import { PokedexView } from "../views/pokedex-view.js";
 import { PokemonList } from "../views/pokemon-list.js";

@@ -2,7 +2,7 @@ import { debugBubble } from "debug-bubble";
 import { router } from "./routing/router.js";
 
 /**
- * @param {any[]} someArray
+ * @param {string | any[]} someArray
  */
 function printArray(someArray) {
     someArray.forEach(value => console.log(value));
@@ -19,3 +19,5 @@ setTimeout(() => {
         debugBubble("Loaded", "Project loaded in development mode", 2);
     }
 });
+
+

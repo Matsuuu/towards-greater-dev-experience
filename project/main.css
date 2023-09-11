@@ -30,6 +30,15 @@ label {
 
 .pokemon-sprite {
   view-transition-name: pokemon-sprite;
+}
+
+::view-transition-old(pokemon-sprite),
+::view-transition-new(pokemon-sprite) {
+  animation-duration: 0.5s;
+}
+
+.pokemon-sprite {
+  view-transition-name: pokemon-sprite;
   contain: layout;
   mix-blend-mode: normal;
   width: 200px;
@@ -51,14 +60,6 @@ label {
   text-transform: capitalize;
 }
 
-::view-transition-old(pokemon-sprite),
-::view-transition-new(pokemon-sprite) {
-  mix-blend-mode: normal;
-}
-
-::view-transition-image-pair(pokemon-sprite) {
-  isolation: none;
-}
 
 #pokedex {
   margin: 10% 5%;

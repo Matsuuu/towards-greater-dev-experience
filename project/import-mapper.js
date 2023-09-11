@@ -8,12 +8,7 @@
  * @type { Record<string, string | VariableImport> }
  */
 const imports = {
-    "lit": "https://esm.run/lit",
-    "suunta": "https://esm.run/suunta",
-    "debug-bubble": {
-        prod: "https://esm.run/debug-bubble",
-        dev: "./node_modules/debug-bubble/src/bundle.js"
-    }
+    "lit": Math.random() > 0.5 ? 'https://cdn.jsdelivr.net/npm/lit/' : "https://unpkg.com/lit/"
 };
 
 function isDevMode() {
@@ -23,7 +18,7 @@ function isDevMode() {
 function injectImportMap() {
     const script = document.createElement("script");
     script.type = "importmap";
-    script.innerHTML = JSON.stringify({imports: parseImports(imports)});
+    script.innerHTML = JSON.stringify({ imports: parseImports(imports) });
     document.head.appendChild(script);
 }
 
