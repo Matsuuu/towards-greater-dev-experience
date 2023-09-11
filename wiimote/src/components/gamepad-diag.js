@@ -65,7 +65,7 @@ export class GamepadDiagnostic extends LitElement {
             this.swung = true;
             setTimeout(() => {
                 this.swung = false;
-            },100);
+            }, 100);
             console.log("Swing");
             debugBubble("Swing!", "Wiimote was swung", 3);
         }

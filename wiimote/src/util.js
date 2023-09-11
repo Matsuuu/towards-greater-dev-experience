@@ -1,14 +1,6 @@
-Open up presenter view
+import { debugBubble } from "debug-bubble";
 
-Open presenter view inspector
-
-Find the "Next slide" selector
-
-Init wiimote to click that
-
-```javascript
-
-class WiiMote {
+export class WiiMote {
     constructor(onSwing) {
         this.controllers = [];
         this.controllerHID = null;
@@ -29,10 +21,6 @@ class WiiMote {
                 this.handleMote(res[0]);
             }
         })
-
-        setTimeout(() => {
-this.addMote();
-        },2000);
     }
 
     async addMote() {
@@ -87,8 +75,3 @@ this.addMote();
     }
 
 }
-
-
-const nextButton = document.querySelector("div.punch-viewer-speakernotes-page-next");
-new WiiMote(() => nextButton.click());
-```
