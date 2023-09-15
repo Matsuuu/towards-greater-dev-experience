@@ -12,7 +12,16 @@
     <link href="./main.css" rel="stylesheet" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script src="./import-mapper.js"></script>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "lit": "https://esm.run/lit"
+        }
+      }
+    </script>
+
+    <!--<script src="./import-mapper.js"></script>-->
   </head>
   <body>
     <suunta-view></suunta-view>

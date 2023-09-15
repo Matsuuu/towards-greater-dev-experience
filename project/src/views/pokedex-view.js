@@ -1,7 +1,10 @@
+
 import { html, render } from "lit";
+
 import { onNavigation } from "suunta";
-import { router } from "../routing/router";
-import { getPokemon } from "../service/pokeapi";
+import { PokemonState } from "../events/state.js";
+import { router } from "../routing/router.js";
+import { getPokemon } from "../service/pokeapi.js";
 
 export function PokedexView() {
 
@@ -9,18 +12,38 @@ export function PokedexView() {
         const currentRoute = router.getCurrentView();
         const pokemonName = currentRoute.properties.pokemonName.toString();
         const pokemon = await getPokemon(pokemonName);
-        /** @type { HTMLElement } */
-        const pokedex = document.querySelector("#pokedex");
-
         console.log(pokemon);
 
+        /**
+          * @type { HTMLImageElement }
+          */
+        const sprite = document.querySelector(".pokemon-sprite");
+        sprite.src = pokemon.sprites.versions["generation-v"]["black-white"].animated.front_default;
+
+        /** @type { HTMLElement } */
+        const content = document.querySelector(".pokedex-content");
+
+        render(html`
+            <h2>${pokemon.name}</h2>
+            <ul>
+                ${pokemon.stats.map(stat => html`
+                    <li>${stat.stat.name}: ${stat.base_stat}</li>
+                `)}
+            </ul>
+        `, content);
+
     });
-    //TODO: Make pokedex image alive?
 
     return html`
-        <a href="/">Back</a>
         <section id="pokedex">
-            <img class="main-sprite" src="${window.targetPokemonSprite}" />
+            <a href="/"><</a>
+            <div class="pokedex-display">
+                <img class="pokemon-sprite" src="${PokemonState.getActivePokemon()?.url}" />
+            </div>
+
+            <div class="pokedex-content">
+
+            </div>
         </section>
     `;
 }

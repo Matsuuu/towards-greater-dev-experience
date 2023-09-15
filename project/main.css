@@ -1,71 +1,74 @@
 #pokemon-listing ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.3rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
 }
 
-#pokemon-listing li {
-    display: flex;
-    flex-direction: column;
-    justify-content:center;
-    align-items: center;
-    border: 1px solid #fff;
-    padding: 0.2rem;
-    border-radius: 2px;
-    transition: 100ms ease-in-out;
+#pokedex a {
+  font-size: 3rem;
 }
 
-#pokemon-listing li:hover {
-    background: rgba(255,255,255, 0.1);
-    cursor: pointer;
-}
-
-#pokemon-listing label {
-    text-transform: capitalize;
-}
-
-#pokedex .main-sprite {
-
+img {
+  height: 200px;
+  width: 200px;
 }
 
 a {
-    color: inherit;
+  display: flex;
+  width: fit-content;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  font-weight: bold;
+  text-decoration: none;
+  color: inherit;
 }
 
-.main-sprite {
-    view-transition-name: main-sprite;
-    contain: layout;
-    mix-blend-mode: normal;
+label {
+  text-transform: capitalize;
 }
 
-::view-transition-old(main-sprite),
-::view-transition-new(main-sprite) {
-    mix-blend-mode: normal;
+.pokemon-sprite {
+  view-transition-name: pokemon-sprite;
 }
 
-::view-transition-image-pair(main-sprite) {
-    isolation: none;
+::view-transition-old(pokemon-sprite),
+::view-transition-new(pokemon-sprite) {
+  animation-duration: 0.5s;
+}
+
+.pokemon-sprite {
+  view-transition-name: pokemon-sprite;
+  contain: layout;
+  mix-blend-mode: normal;
+  width: 200px;
+  aspect-ratio: 1;
+
+  background: #fff;
+  padding: 2rem;
+}
+
+.pokedex-display {
+  background: lightgray;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pokedex-content {
+  text-transform: capitalize;
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#pokedex {
+  margin: 10% 5%;
+  padding: 3rem;
+  background: #d20a40;
+  border-radius: 10px;
+  height: 70%;
+  box-shadow: 8px 7px 7px 9px #424242;
+}
 
 html,
 body {
