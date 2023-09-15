@@ -8,6 +8,8 @@ export const HomeView = () => {
         <h2>Hello world!</h2>
         <a href="/foo">Foo</a>
         <a href="/gamepad">Gamepad API</a>
+        <button @click=${() => aa.addMote()}>Add Mote</button>
+    
 
     `;
 }
