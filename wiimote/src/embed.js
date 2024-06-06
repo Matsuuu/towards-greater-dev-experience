@@ -1,4 +1,5 @@
-export class WiiMote {
+
+class WiiMote {
     constructor(onSwing) {
         this.controllers = [];
         this.controllerHID = null;
@@ -14,11 +15,15 @@ export class WiiMote {
 
 
         this.listen();
-        navigator.hid.getDevices().then(res => {
+        /*navigator.hid.getDevices().then(res => {
             if (res.length > 0) {
                 this.handleMote(res[0]);
             }
-        })
+        })*/
+
+        setTimeout(() => {
+            this.addMote();
+        }, 2000);
     }
 
     async addMote() {
@@ -27,15 +32,21 @@ export class WiiMote {
         });
 
         const device = devices[0];
-        this.handleMote(device);
+        if (device) {
+            this.handleMote(device);
+        }
     }
 
     async handleMote(mote) {
+        if (!mote) {
+            console.error("Handlemote called with undefined");
+            return;
+        }
         this.controllerHID = mote;
         await this.controllerHID.open();
         this.controllerHID.oninputreport = (e) => this.readHID(e);
 
-        console.log(mote);
+        console.log("Handled mote ", mote);
     }
 
     listen() {
@@ -73,3 +84,7 @@ export class WiiMote {
     }
 
 }
+
+
+const nextButton = document.querySelector("div.punch-viewer-speakernotes-page-next");
+new WiiMote(() => nextButton.click());
